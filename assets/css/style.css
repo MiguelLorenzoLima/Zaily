@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body{
+    background-color: black;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* =================== HEADER ==================== */
+
+header{
+    width: 80vw;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    align-items: center;
+    grid-template-columns: 10fr 1fr;
+    gap: 60px;
+    z-index: 2;
+}
+
+header img {
+    width: 160px;
+}
+
+header nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+}
+
+/* =================== SECTION ==================== */
+
+section{
+  background-image: radial-gradient(circle, #3A154A, #150611);
+  min-height: 100vh;
+  position: relative;
+  padding-top: 120px;
+}
+
+section .list{
+    width: 70vw;
+    min-height: 100vh;
+    margin: auto; 
+    position: relative;
+}
+
+section .item{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+}
+
+section .bikeImage{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70%;
+}
+
+section .bikeImage img{
+    width: 100%;    
+    transform: rotate(-20deg) scaleX(-1);
+}
+
+/* =================== ARROWS ==================== */
+
+.arrows button img{
+    width: 100px;
+}
+
+/* =================== RESPONSIVIDADE ==================== */
+
+@media (max-width: 800px) {
+
+    header {
+        width: 100vw;
+        gap: 20px;
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 10px 0;
+        position: static;
+        transform: none;
+    }
+
+    header nav ul {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    /* imagem da bike centralizada e menor */
+    section .bikeImage{
+        width: 90%;
+        position: relative;
+        top: 0;
+        transform: none;
+        margin: 30px auto;
+    }
+
+    /* conteúdo em coluna */
+    section .item {
+        position: relative;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    header img {
+        width: 120px;
+    }
+
+    section .bikeImage img {
+        transform: rotate(-20deg) scaleX(-1);
+    }
+
+    .arrows button img{
+        width: 60px;
+    }
+}
