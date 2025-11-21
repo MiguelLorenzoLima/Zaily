@@ -1,4 +1,5 @@
-*{
+/* =================== RESET ==================== */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,7 +7,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-body{
+body {
     background-color: black;
     color: #fff;
     font-size: 16px;
@@ -14,8 +15,7 @@ body{
 }
 
 /* =================== HEADER ==================== */
-
-header{
+header {
     width: 80vw;
     position: fixed;
     left: 50%;
@@ -37,41 +37,57 @@ header nav ul {
 }
 
 /* =================== SECTION ==================== */
-
-section{
-  background-image: radial-gradient(circle, #3A154A, #150611);
-  min-height: 100vh;
-  position: relative;
-  padding-top: 120px;
+section {
+    background-image: radial-gradient(circle, #3A154A, #150611);
+    min-height: 100vh;
+    position: relative;
+    padding-top: 120px;
 }
 
-section .list{
+section .list {
     width: 70vw;
     min-height: 100vh;
-    margin: auto; 
+    margin: auto;
     position: relative;
 }
-section .item{
+
+/* Cada item */
+section .list .item {
     position: absolute;
     inset: 0;
     display: flex;
     align-items: center;
+    transform: translateX(100vw);
+    opacity: 0;
+    transition: 0.5s;
 }
 
-section .bikeImage{
+/* Quando ativo */
+section .list .item.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* =================== BIKE IMAGE ==================== */
+section .bikeImage {
     position: absolute;
     top: 40%;
     transform: translateY(-50%);
     width: 70%;
 }
 
-section .bikeImage img{
-    width: 80%;    
+section .bikeImage img {
+    width: 79%;
     transform: rotate(-25deg) scaleX(-1);
+    transition: 0.5s;
 }
 
+section .list .item.active .bikeImage img {
+    transform: rotate(-20deg) scaleX(-1);
+}
 
-section .item .content{
+/* =================== CONTENT ==================== */
+section .item .content {
     position: absolute;
     right: 100px;
     width: 70%;
@@ -82,21 +98,39 @@ section .item .content{
     align-items: end;
     gap: 20px;
 }
-section .item .content .bikeInformation{
+
+/* textos que animam */
+section .item .content .bikeInformation,
+section .item .content h2,
+section .item .content .description,
+section .item .content .information {
+    transform: translateX(200px);
+    opacity: 0;
+    transition: 0.7s;
+}
+
+/* delays individuais */
+section .item .content .bikeInformation {
+    transition-delay: 0.3s;
     font-weight: bold;
 }
-section .item .content  h2{
+
+section .item .content h2 {
     font-size: 4em;
     line-height: 1em;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    transition-delay: 0.5s;
 }
-section .item .content .description{
+
+section .item .content .description {
     color: #d9d9d9;
-    font: 12px;
-    text-align: right;
     max-width: 400px;
+    text-align: right;
+    font-size: 12px;
+    transition-delay: 0.7s;
 }
-section .item .content .information{
+
+section .item .content .information {
     border-radius: 30px;
     height: 35px;
     width: 120px;
@@ -106,8 +140,20 @@ section .item .content .information{
     color: #000;
     cursor: pointer;
     font-weight: bold;
+    transition-delay: 0.9s;
 }
-section .indicators{
+
+/* ativo → elementos entram */
+section .list .item.active .content .bikeInformation,
+section .list .item.active .content h2,
+section .list .item.active .content .description,
+section .list .item.active .content .information {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* =================== INDICATORS ==================== */
+section .indicators {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -118,29 +164,29 @@ section .indicators{
     flex-direction: column;
     justify-content: end;
     gap: 15px;
-
 }
-section .indicators .number{
+
+section .indicators .number {
     font-size: 5em;
     font-family: "League Gothic", sans-serif;
 }
-section .indicators ul{
+
+section .indicators ul {
     display: flex;
     gap: 10px;
-
 }
-section .indicators ul li{
+
+section .indicators ul li {
     width: 50px;
     height: 5px;
     background-color: rgb(111, 255, 0);
     border-radius: 5px;
     transition: 0.5s;
 }
-section .indicators ul li .active{
-    color: #fff;
+
+section .indicators ul li.active {
+    background-color: #fff;
 }
-
-
 
 /* =================== ARROWS ==================== */
 .arrows {
@@ -152,34 +198,31 @@ section .indicators ul li .active{
     display: flex;
     justify-content: space-between;
 }
-.arrows button:nth-child(1) img{
-    transform: scale(-1);
-}
 
-.arrows button{
-    top: 60%;
+.arrows button {
     width: 45px;
     height: 45px;
     border-radius: 50%;
     border: none;
     cursor: pointer;
+    background: #fff;
 }
-.arrows button:hover{
-    background-color: rgb(111, 255, 0) ;
+
+.arrows button:hover {
+    background-color: rgb(111, 255, 0);
 }
- 
-.arrows button img{
+
+.arrows button img {
     width: 30px;
     margin-top: 4px;
-    cursor: pointer;
 }
 
-
+.arrows button:nth-child(1) img {
+    transform: scale(-1);
+}
 
 /* =================== RESPONSIVIDADE ==================== */
-
 @media (max-width: 800px) {
-
     header {
         width: 100vw;
         gap: 20px;
@@ -194,8 +237,7 @@ section .indicators ul li .active{
         grid-template-columns: 1fr 1fr 1fr;
     }
 
-    /* imagem da bike centralizada e menor */
-    section .bikeImage{
+    section .bikeImage {
         width: 90%;
         position: relative;
         top: 0;
@@ -203,75 +245,30 @@ section .indicators ul li .active{
         margin: 30px auto;
     }
 
-    /* conteúdo em coluna */
     section .item {
         position: relative;
         flex-direction: column;
         text-align: center;
         padding: 20px;
     }
+
+    section .item .content {
+        align-items: center;
+        right: 0;
+        width: 100%;
+    }
+
+    section .indicators {
+        top: 85%;
+    }
 }
 
 @media (max-width: 500px) {
-
     header img {
         width: 120px;
     }
 
-    section .bikeImage img {
-        transform: rotate(-20deg) scaleX(-1);
+    .arrows button img {
+        width: 26px;
     }
-
-    .arrows button img{
-        width: 60px;
-    }
-}
-
-
-
-section .list .item{
-    transform: translateX(100vw);
-    transition: 0.5s;
-    opacity: 0;
-
-}
-
-section .list .item .content .bikeInformation, h2, .description, .information{
-    transform: translateX(200px);
-    transition: 0.7s;
-    transition-delay: 0.3s;
-    opacity: 0;
-
-}
-section .list .item .content h2{
-    transition-delay: 0.5s;
-}
-section .list .item .content .description{
-    transition-delay: 0.7s;
-}
-section .list .item .content .information{
-    transition-delay: 0.9s;
-}
-
-section .list .active{
-    transform: translateX(0);
-    transition: 0.5s;
-    opacity: 1;
-}
-
-section .list .active .item .bikeImage img{
-    transform: rotate(-20deg) scaleX(-1);
-}
-
-section .list .active .content .bikeInformation, h2, .description, .information{
-    transform: translateX(0);
-    opacity: 1;
-}
-
-
-
-section .list .item .bikeImage img{
-    transform: rotate(-20deg) scaleX(-1);
-    transition: 0.5s;
-    transition-delay: 0.3s;
 }
