@@ -1,56 +1,120 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poly:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poly:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
     <header class="header">
-        <img src="assets/img/logo.png" alt="logo zaily">
-        <nav>
-            <ul>
-                <li><a style="color: #fff; text-decoration: none;" href="index.html">Home</a></li>
-                <li><a style="color: #fff; text-decoration: none;"href="catalogo.html">Catálogo</a></li>
-                <li><a style="color: #fff; text-decoration: none;"href="contato.html">Contato</a></li>
-            </ul>
-        </nav>
+      <img src="assets/img/logo.png" alt="logo zaily" />
+      <nav>
+        <ul>
+          <li>
+            <a style="color: #fff; text-decoration: none" href="index.html"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a style="color: #fff; text-decoration: none" href="catalogo.html"
+              >Catálogo</a
+            >
+          </li>
+          <li>
+            <a style="color: #fff; text-decoration: none" href="contato.html"
+              >Contato</a
+            >
+          </li>
+        </ul>
+      </nav>
     </header>
 
-    <section>
-        <div class="list">
-            <div class="item">
-                <div class="bikeImage">
-                    <img  src="assets/img/bike1.png" alt="imagem bike">
-                </div>
-                <div class="content">
-                    <p class="bikeInformation">
-                        Sonho em movimento
-                    </p>
-                    <h2>Triatlon Bike</h2>
-                    <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet excepturi ullam totam velit, nostrum voluptas impedit nam at dolores molestiae iste! Nulla veniam molestias commodi cumque est, corporis numquam odit!</p>
-                    <button>Saiba Mais!</button>
-                </div>
-            </div>
+    <section class="container">
+      <div class="list">
+        <div class="item active">
+          <div class="bikeImage">
+            <img src="assets/img/bike1.png" alt="imagem bike" />
+          </div>
+          <div class="content">
+            <p class="bikeInformation">Sonho em movimento</p>
+            <h2>Triatlon Bike</h2>
+            <p class="description">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
+              excepturi ullam totam velit, nostrum voluptas impedit nam at
+              dolores molestiae iste! Nulla veniam molestias commodi cumque est,
+              corporis numquam odit!
+            </p>
+            <button class="information">Saiba Mais!</button>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="bikeImage">
+            <img src="assets/img/bike2.png" alt="imagem bike" />
+          </div>
+          <div class="content">
+            <p class="bikeInformation">Sonho em movimento</p>
+            <h2>Speed Bike</h2>
+            <p class="description">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
+              excepturi ullam totam velit, nostrum voluptas impedit nam at
+              dolores molestiae iste! Nulla veniam molestias commodi cumque est,
+              corporis numquam odit!
+            </p>
+            <button class="information">Saiba Mais!</button>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="bikeImage">
+            <img src="assets/img/bike3.png" alt="imagem bike" />
+          </div>
+          <div class="content">
+            <p class="bikeInformation">Sonho em movimento</p>
+            <h2>Montain Bike</h2>
+            <p class="description">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
+              excepturi ullam totam velit, nostrum voluptas impedit nam at
+              dolores molestiae iste! Nulla veniam molestias commodi cumque est,
+              corporis numquam odit!
+            </p>
+            <button class="information">Saiba Mais!</button>
+          </div>
         </div>
 
 
-        <div class="arrows">
-            <button><img src="assets/img/arrow.png" alt="seta esquerda"></button>
-            <button><img src="assets/img/arrow.png" alt="seta direita"></button>
-        </div>
-        <div class="indicators">
-            <div class="number">01</div>
-                <ul>
-                    <li class="active"></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-        </div>
 
+      </div>
 
+      <div class="arrows">
+        <button id="prev"><img src="assets/img/arrow.png" alt="seta esquerda" /></button>
+        <button id="next"><img src="assets/img/arrow.png" alt="seta direita" /></button>
+      </div>
+
+      <div class="indicators">
+        <div class="number">01</div>
+        <ul>
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
     </section>
-
-</body>
+    <script src="assets/js/index.js"></script>
+  </body>
 </html>
